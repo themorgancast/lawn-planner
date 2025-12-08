@@ -10,7 +10,13 @@ function cartReducer(cartList, action) {
       if (itemExists) {
         return cartList.map(cartItem => 
           cartItem.id === action.id ? 
-            {...cartItem, name: cartItem.name, price: cartItem.price, quantity: cartItem.quantity + 1}
+            {
+              ...cartItem, 
+              name: cartItem.name, 
+              price: cartItem.price, 
+              quantity: cartItem.quantity + 1,
+              applicationDate: cartItem.applicationDate
+            }
           : cartItem
         )
       } else {
@@ -18,10 +24,11 @@ function cartReducer(cartList, action) {
         id: action.id,
         name: action.name,
         price: action.price,
-        quantity: 1
+        quantity: 1,
+        applicationDate: action.applicationDate
       }];
     }
-    case "delete":
+    case "remove":
       return cartList.filter(item => item.id !== action.id);
     default: 
       throw Error('Unknown action: ' + action.type);

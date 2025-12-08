@@ -71,6 +71,35 @@
   padding: 0.75rem;
 }
 
+.btn.remove {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn.remove::before,
+.btn.remove::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 4px;
+  background-color: #8b0000; /* Color of the X */
+}
+
+.btn.remove::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.btn.remove::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 /* Products section */
 .products-container {
   grid-column: 1;
@@ -177,6 +206,10 @@ ul {
 
 .item-details p {
   margin: 0;
+}
+
+.item-name {
+  font-weight: 600;
 }
 
 .total {

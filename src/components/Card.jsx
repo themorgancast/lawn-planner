@@ -19,7 +19,8 @@ const Card = ({ product }) => {
               type: "add",
               id: product.id,
               name: product.name,
-              price: product.price
+              price: product.price,
+              applicationDate: product.applicationDate
             })}
           >Add to Subscription
         </button>
